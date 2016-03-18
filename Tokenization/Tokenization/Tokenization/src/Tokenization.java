@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -61,9 +62,7 @@ public class Tokenization {
 	 *  5. Display - The number of words that occur only once in the Cranfield text collection (find from token dictionary)
 	 *  6. Display - The 30 most frequent words in the Cranfield text collection – list them and their respective frequency information (find from token dictionay)
 	 *  7. Display - The average number of word tokens per document (Find from tokenList)   
-	 *  
-	 *  1. How long the program took to acquire the text characteristics (Find time diff)
-	 *  2. 
+	 *    
 	 */
 	public void process(){	
 		
@@ -93,7 +92,7 @@ public class Tokenization {
 				//tokenPerDocument.put(documentID, count);				
 			}
 			
-			System.out.println("1. The number of tokens in the Cranfield text collection : "+tokenList.size());
+			System.out.println("1. The number of tokens in the Cranfield text collection: "+tokenList.size());
 			
 			for(Term term: tokenList){
 				if(tokenDictionary.containsKey(term.getWord())){
@@ -119,7 +118,7 @@ public class Tokenization {
 				}
 			}
 			
-			System.out.println("2.The number of unique words in the Cranfield text collection : "+ tokenDictionary.size());
+			System.out.println("2.The number of unique words in the Cranfield text collection: "+ tokenDictionary.size());
 			
 			int onlyOnceCount=0;
 			List<String> onlyOneWords=new ArrayList<String>();
@@ -140,7 +139,7 @@ public class Tokenization {
 					wordFrequncy.put(token.getTotalFrequency(), s);
 				}
 			}
-			System.out.println("3. The number of words that occur only once in the Cranfield text collection : "+ onlyOnceCount);
+			System.out.println("3. The number of words that occur only once in the Cranfield text collection: "+ onlyOnceCount);
 			
 			NavigableMap<Integer,List<String>> nmap=wordFrequncy.descendingMap();
 			System.out.println("4. The 30 most frequent words in the Cranfield text collection – list them and their respective frequency information.");
@@ -156,7 +155,7 @@ public class Tokenization {
 				  count++;
 			}
 			
-			System.out.println("5. The average number of word tokens per document : "+(tokenList.size()/documentIDs.size()));
+			System.out.println("5. The average number of word tokens per document: "+(tokenList.size()/documentIDs.size()));
 			/*entries = tokenPerDocument.entrySet().iterator();
 			int sumCount=0;
 			while (entries.hasNext()) {
@@ -233,7 +232,9 @@ public class Tokenization {
 	}
 	
 	public static void main(String[] args){
+		long startTime = Calendar.getInstance().getTimeInMillis();
 		Tokenization main=new Tokenization();
 		main.process();
+		System.out.println("Time taken to acquire characteristics: " + (Calendar.getInstance().getTimeInMillis()-startTime) + "ms");
 	}
 }
