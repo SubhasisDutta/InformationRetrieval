@@ -2,9 +2,14 @@ import java.util.Calendar;
 
 
 public class HomeWork1 {
-			
+	public static String fileDirectoryPath;		
 	public static void main(String[] args) {
-		String fileDirectoryPath = args[0].toString();		
+		if(args.length < 1 ){
+			fileDirectoryPath = "C:\\Workspace\\Github\\Information Retrieval\\Indexing\\src\\Cranfield\\";			
+		} else {
+			fileDirectoryPath = args[0].toString();			
+		}
+				
 		long startTime = Calendar.getInstance().getTimeInMillis();
 		Tokenization tokenization=new Tokenization(fileDirectoryPath);
 		System.out.println("*******************TOKENIZATION****************************");
