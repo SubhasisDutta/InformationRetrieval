@@ -1,0 +1,24 @@
+CREATE TABLE table_name (column_name1 data_type(size) [primary key|not null],column_name2 data_type(size) [primary key|not null],column_name3 data_type(size) [primary key|not null]);
+
+
+CREATE TABLE Zoo (
+Animal_ID INT PRIMARY KEY,
+Name VARCHAR(20),
+Sector SHORT INT
+);
+
+CREATE TABLE Zoo(
+Animal_ID INT PRIMARY KEY,
+Name VARCHAR(20) ,
+Type VARCHAR(20) NOT null,
+Sector SHORT INT,
+Length long INT,
+weight float,
+cost_per_year double NOT null,
+popular byte NOT null
+);
+
+INSERT INTO TABLE zoo VALUES (1,Tiger,5);
+INSERT INTO TABLE zoo VALUES (2,Elephant,5);
+INSERT INTO TABLE zoo VALUES (3,Lion,5);
+insert into TABLE Zoo1 VALUES (4,Pecock,2);
