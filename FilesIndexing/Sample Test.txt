@@ -1,0 +1,117 @@
+CREATE SCHEMA University;
+
+USE University;
+
+CREATE TABLE Students (id int primary key, name varchar(25), bdate date, credits short);
+
+INSERT INTO TABLE Students VALUES (1,'Jason Day','1995-08-21',32);
+INSERT INTO TABLE Students VALUES (2,'Shirley Moore','1994-12-19',63);
+INSERT INTO TABLE Students VALUES (3,'Tina Bell','1995-06-16,64',45);
+INSERT INTO TABLE Students VALUES (4,'Brenda Webb','1993-12-18',29);
+INSERT INTO TABLE Students VALUES (5,'Lois Simmons','1994-05-14',15);
+
+INSERT INTO TABLE Students VALUES (3,'Tina Bell','1995-06-16',45);
+
+SELECT * FROM Students WHERE id = 3;
+SELECT * FROM Students WHERE credits > 30;
+SELECT * FROM Stduents WHERE bdate < '1995-01-01';
+
+SELECT * FROM Students WHERE bdate < '1995-01-01';
+
+
+PS C:\tmp> java -cp .\Simple_Database.jar com.subhasis.devisbase.resource.Main
+********************************************************************************
+Welcome to DavisBaseLite
+DavisBaseLite v1.0
+
+Type "help;" to display supported commands.
+********************************************************************************
+********************************************************************************
+
+ version;                                 Show the program version.
+ help;                                    Show this help information
+ show schemas;                            Displays all schemas defined in your database.
+ use <schema_name>;                       Chooses a schema as default.
+ show tables;                             Displays all tables in the currectly chosen schema.
+ create schema <schema_name>;             Creates a new schema to hold tables.
+ create table <table_name>(...);          Creates a new table schema, i.e. a new empty table.
+ insert into table <table_name> ...;      Inserts a row/record into a table.
+INSERT INTO TABLE table_name VALUES (values_list);
+ delete from <table_name> ... ;           Deletes one or more rows/records from a table.(Not Supported.)
+ drop table <table_name>;                 Remove a table schema, and all of its contained data.
+ select ... from <table_name> where ...;  Query a table.
+ SELECT * FROM <table_name> WHERE field_name [!=|=|>|>=|<|<=] value;
+ exit/quit;                               Exit the program
+
+
+********************************************************************************
+The database has been initilized and is stored in location db/
+davisql> show tables;
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|       Tables_in_information_schema    |
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|  SCHEMATA  |
+|  TABLES  |
+|  COLUMNS  |
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Executed in 13.754793ms
+davisql> CREATE SCHEMA University;
+Created Schema with name university sucessfully.
+Executed in 6.553856ms
+davisql> USE University;
+Database changed to university sucessfully.
+Executed in 2.725953ms
+davisql> CREATE TABLE Students (id int primary key, name varchar(25), bdate date, credits short);
+Table added to schema university
+Executed in 15.662446ms
+davisql> INSERT INTO TABLE Students VALUES (1,'Jason Day','1995-08-21',32);
+1 row inserted in 41.309166ms
+davisql> INSERT INTO TABLE Students VALUES (2,'Shirley Moore','1994-12-19',63);
+1 row inserted in 23.670953ms
+davisql> INSERT INTO TABLE Students VALUES (3,'Tina Bell','1995-06-16,64',45);
+Invalid Syntax.Number of data poins for students dont match up.
+davisql> INSERT INTO TABLE Students VALUES (4,'Brenda Webb','1993-12-18',29);
+1 row inserted in 22.82746ms
+davisql> INSERT INTO TABLE Students VALUES (5,'Lois Simmons','1994-05-14',15);
+1 row inserted in 26.119318ms
+davisql> INSERT INTO TABLE Students VALUES (3,'Tina Bell','1995-06-16',45);
+1 row inserted in 24.047911ms
+davisql> SELECT * FROM Students WHERE id = 3;
+Tables_in university students
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|       id      name    bdate   credits |
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|  3  |  Tina Bell  |  1995-06-16  |  45  |
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Executed in 25.38686ms
+davisql> SELECT * FROM Students WHERE id = 1;
+Tables_in university students
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|       id      name    bdate   credits |
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|  1  |  Jason Day  |  1995-08-21  |  32  |
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Executed in 23.140505ms
+davisql> SELECT * FROM Students WHERE credits > 30;
+Tables_in university students
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|       id      name    bdate   credits |
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|  1  |  Jason Day  |  1995-08-21  |  32  |
+|  3  |  Tina Bell  |  1995-06-16  |  45  |
+|  2  |  Shirley Moore  |  1994-12-19  |  63  |
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Executed in 26.856907ms
+davisql> SELECT * FROM Stduents WHERE bdate < '1995-01-01';
+Table with name stduents does not exiests in schema university
+davisql> SELECT * FROM Students WHERE bdate < '1995-01-01';
+Tables_in university students
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|       id      name    bdate   credits |
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|  4  |  Brenda Webb  |  1993-12-18  |  29  |
+|  5  |  Lois Simmons  |  1994-05-14  |  15  |
+|  2  |  Shirley Moore  |  1994-12-19  |  63  |
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Executed in 28.244842ms
+davisql>
