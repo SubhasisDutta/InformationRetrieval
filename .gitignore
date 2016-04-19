@@ -3,3 +3,5 @@ Tokenization/Tokenization/.metadata/
 Indexing/lib/stanfordNLP3.5/
 RemoteSystemsTempFiles/
 *.tbl
+RankedRetrieval/src/Cranfield/
+RankedRetrieval/lib/stanfordNLP3.5/
