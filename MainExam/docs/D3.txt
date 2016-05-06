@@ -1,0 +1,1 @@
+Adobe has released an emergency update to its Flash Player after security researchers discovered a bug that allows attackers to take over and then crash users machines

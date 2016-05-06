@@ -388,10 +388,15 @@ public void stem()
  * forcing lower case must be done outside the Stemmer class.
  * Usage: Stemmer file-name file-name ...
  */
-/*public static void main(String[] args)
+public static void main(String[] args)
 {
+   String keyWord = "far";	
    char[] w = new char[501];
    Stemmer s = new Stemmer();
+   s.add(keyWord.toCharArray(),keyWord.length());
+   s.stem();
+   System.out.println(s.toString());
+   /*
    for (int i = 0; i < args.length; i++)
    try
    {
@@ -411,7 +416,7 @@ public void stem()
                  ch = in.read();
                  if (!Character.isLetter((char) ch))
                  {
-                    /* to test add(char ch) 
+                    // to test add(char ch) 
                     for (int c = 0; c < j; c++) s.add(w[c]);
 
                     // or, to test add(char[] w, int j) 
@@ -444,7 +449,7 @@ public void stem()
    catch (FileNotFoundException e)
    {  System.out.println("file " + args[i] + " not found");
       break;
-   }
-}*/
+   }*/
+}
 }
 
